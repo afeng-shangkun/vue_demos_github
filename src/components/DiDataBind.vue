@@ -28,6 +28,8 @@ gender:{{person.gender}}<br/>
 hobbies:{{person.hobbies}}<br/>
 identity:{{person.identity}}
 </div>
+<hr/>
+<button @click='getparams()'>接收参数</button>
 </div>
 </template>
 
@@ -47,6 +49,11 @@ export default {
   methods: {
     change_username: function () {
       this.person.username = 'jack'
+    },
+    getparams: function () {
+      console.dir(this)
+      // alert(this.$route.query.id)
+      console.log(this.$route.params.id)
     }
   },
   // 生命周期 - 创建完成（访问当前this实例）

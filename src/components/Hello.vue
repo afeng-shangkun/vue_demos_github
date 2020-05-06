@@ -1,6 +1,7 @@
 <template>
   <div id="div23">
     <h1 ref="hello">this is a frist page!</h1>
+    {{$store.state.count}}
     <h2>{{ message }}</h2>
     <h3>{{ hobbies[2] }}</h3>
     {{2+3}}
@@ -15,20 +16,27 @@
     <button @click="sayHello" class="btn btn-primary">sayHello</button>
     <button @click="change_message('前端专业班')">改变数据</button>
     <button class="btn btn-success">success</button>
+    <my-logo :title='title'></my-logo>
+    <router-link :to="{name:'DiDataBind',query:{id:5,name:'czf'}}">query DiDataBind</router-link>
+    <button @click="showStu(5)">显示学生信息</button>
+    <hr/>
+    <router-link :to="{name:'DiDataBind',params:{id:5,name:'czf'}}">params DiDataBind</router-link>
   </div>
 </template>
-
 <script>
-import $ from 'jquery'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import 'bootstrap/dist/js/bootstrap.min'
-console.log($)
+// 引入Logo组件
+import MyLogo from '@/components/Logo'
+// 声明组件
 export default {
+  components: {
+    MyLogo: MyLogo
+  },
   data () {
     return {
       message: 'hello,vue.js!',
       hobbies: ['爬山', '跑步', '键走'],
-      isShow: false
+      isShow: false,
+      title: '给子组件传递数值！'
     }
   },
   address: '北京昌平',
@@ -36,6 +44,14 @@ export default {
     sayHello: function () {
       console.log('hello2,vue.js2!')
       return 'OK'
+    },
+    showStu: function (val) {
+      this.$router.push({
+        name: 'DiDataBind',
+        query: {
+          'id': val
+        }
+      })
     },
     change_message: function (newMesage) {
       this.message = newMesage

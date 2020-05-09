@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ES6中的解析赋值</title>
+  </head>
+
+  <body>
+    <script>
+      let [a, b, c] = [1, 2, ["a", "b", "c"]];
+      console.log(a);
+      console.log(b);
+      console.log(c);
+      let person = {
+        name: "czf",
+        age: 18,
+        address: "北京昌平",
+        getAge: function() {
+          return age;
+        }
+      };
+
+      let { name, age, address } = person;
+      console.log(name + " " + age + " " + address);
+      let getAge2 = person.getAge;
+
+      let { getAge } = person;
+      console.log(getAge());
+      let [a1, b1, c1] = "werrtrt";
+      let { length } = "werrtrt";
+      console.log(a1);
+      console.log(b1);
+      console.log(c1);
+      console.log(length);
+      function f1() {
+        return [1, "a", { age2: 28 }];
+      }
+      let [af, bf, { age2 }] = f1();
+      console.log(af);
+      console.log(bf);
+      console.log(age2);
+      const map = new Map();
+      map.set("first", "hello");
+      map.set("second", "world");
+
+      for (let [key, value] of map) {
+        console.log(key + " is " + value);
+      }
+    </script>
+  </body>
+</html>

@@ -15,6 +15,8 @@ import UseMixin from '@/components/UseMixin'
 import ParentComponent from '@/components/ParentComponent'
 import A from '@/components/A'
 import VuexDemo1 from '@/components/VuexDemo1'
+import TestDemos from '@/components/TestDemos'
+import Users from '@/components/Users'
 Vue.use(Router)
 
 export default new Router({
@@ -100,6 +102,16 @@ export default new Router({
       path: '/vuexhello',
       name: 'VuexDemo1',
       component: VuexDemo1
+    },
+    {
+      path: '/test',
+      name: 'TestDemos',
+      component: TestDemos
+    },
+    {
+      path: '/user',
+      name: 'Users',
+      component: Users
     }
   ]
 })
